@@ -12,7 +12,7 @@ namespace app\common;
 class Test
 {
 	public  function  test(){
-		echo 'this is test';
+		echo 'this is test<br>';
 	}
 
 }

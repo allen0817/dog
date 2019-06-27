@@ -13,6 +13,6 @@ class Test1
 {
 
 	public  function  test(){
-		echo 'this is test11111';
+		echo 'this is test11111<br>';
 	}
 }
