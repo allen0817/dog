@@ -1,0 +1,37 @@
+单元测试（验证model里的方法）
+
+./vendor/bin/codecept  run
+./vendor/bin/codecept  run unit
+ ./vendor/bin/codecept  run unit   ./tests/unit/models/UserTest
+
+ 创建测试文件 Example
+ vendor/bin/codecept generate:test unit Example
+
+
+需要继承此类 \Codeception\Test\Unit
+方法名需要以test开的陀峰格式,如： testCheckUser
+
+
+
+期望真实存在并不为空
+expect_that()
+
+
+返回期望值
+expect($value)
+
+判断值是否相等
+equals($value)
+
+
+期望值不等于
+expect_not($value)
+
+包含关键字
+hasKey($value)
+
+
+不包含关键字
+hasntKey($value)
+
+

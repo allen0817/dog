@@ -5,5 +5,5 @@
   'username' => 'allen',
   'contance' => 'wfwf',
   'apple' => '963852147',
-  'aaa' => '333333',
+  'adminEmail' => 'adminEmail@qq.com',
 );
