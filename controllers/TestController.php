@@ -15,7 +15,6 @@ use app\common\First;
 use app\common\Mouse;
 use app\common\My;
 use app\common\helpers\ArrayHelper;
-use app\common\myEvent;
 use app\common\Snake;
 use app\common\Test;
 use app\common\Test1;
@@ -28,10 +27,13 @@ use yii\db\Query;
 use yii\db\Transaction;
 use yii\di\Container;
 use yii\filters\AccessControl;
+use yii\helpers\Json;
 use yii\helpers\Url;
+use yii\i18n\Formatter;
 use yii\web\Controller;
 use yii\web\Cookie;
 use yii\web\Response;
+use yii\web\View;
 
 class TestController extends  Controller
 {
@@ -231,8 +233,16 @@ class TestController extends  Controller
 	}
 
 
+	public function actionJ()
+	{
+		$name = Yii::$app->request->get('name' , 'allen');
+		Yii::$app->response->format = Response::FORMAT_JSON;
+		return ['name' => $name];
+	}
 
-	public  function behaviors()
+
+
+	public  function behaviors1()
 	{
 		return [
 			'access' => [

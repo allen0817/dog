@@ -11,13 +11,19 @@ namespace app\common;
 
 use yii\base\Event;
 
-class Snake extends  Event
+class Snake extends Event
 {
-
 	const COME_EVENT = 'come';
 
-	public function come(){
+	private $_hobby;
 
+
+
+
+	public function come()
+	{
+		$b = '7';
+		
 	}
 
 
