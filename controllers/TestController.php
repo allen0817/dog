@@ -9,14 +9,20 @@
 namespace app\controllers;
 
 
+use app\common\Cat;
+use app\common\Dog;
 use app\common\First;
+use app\common\Mouse;
 use app\common\My;
 use app\common\helpers\ArrayHelper;
+use app\common\myEvent;
+use app\common\Snake;
 use app\common\Test;
 use app\common\Test1;
 use app\models\Grade;
 use phpDocumentor\Reflection\Types\ContextFactory;
 use Yii;
+use yii\base\Event;
 use yii\base\Model;
 use yii\db\Query;
 use yii\db\Transaction;
@@ -150,9 +156,9 @@ class TestController extends  Controller
 //			p($v);
 //		}
 
-		$redis = Yii::$app->redis;
-//		$redis->set('name','allen');
-		echo $redis->get('name');
+// 		$redis = Yii::$app->redis;
+// //		$redis->set('name','allen');
+// 		echo $redis->get('name');
 
 //		echo ctype_alnum('sfwfew8484'); 字母和数字检测
 //		echo ctype_alpha('fsfwfwf'); 纯字母检测
@@ -172,6 +178,50 @@ class TestController extends  Controller
 		//通过密钥加解密
 //		$d =  Yii::$app->getSecurity()->encryptByKey('bbb','aaa','gg');
 //		Yii::$app->getSecurity()->decryptByKey($d,'aaa','gg');
+
+
+		$first = new First();
+//		$first->name = 'bby';
+		// unset($first->name);
+		// if($first->name){
+		// 	echo 'isset';
+		// }else{
+		// 	echo 'no insset';
+		// }
+//		if($first->hasProperty('name'))echo 1;
+//		else echo 2;
+//		if($first->canGetProperty('name')) echo 1;
+//		else echo 2;
+
+
+
+
+//		$this->on('b',function (){
+//			echo 'hello';
+//		});
+//		$this->trigger('b');
+
+
+		$cat = new Cat(); //继承 Component
+		$mouse = new Mouse();
+		$dog = new Dog();
+		//绑定事件
+		$cat->on(Cat::MAO_EVENT,[$mouse,'run'],['name'=>'hello']);
+		//绑定事件
+		$cat->on($cat::MAO_EVENT,[$dog,'wang']);
+		//猫叫触发事件
+		$cat->shout();
+
+//		类级别事件绑定后可以使用 (new Cat())->shout();触发
+//		Event::on(Cat::className() ,Cat::MAO_EVENT, [$mouse, 'run']);
+
+		echo "<br>============<br>";
+
+		//简单使用，相当于实例化
+		$this->on('ss',[$mouse,'run']);
+		$this->trigger('ss');
+
+
 
 
 

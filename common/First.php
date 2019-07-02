@@ -11,17 +11,18 @@ namespace app\common;
 
 class First extends  My
 {
-	public  $_test;
+	private  $_test;
+
+
 	public function setTest($val){
-		if(is_object($val)) return $this->test = $val;
-		if(is_array($val))  return $this->test = new $val['class'] ;
+		if(is_object($val)) return $this->_test = $val;
+		if(is_array($val))  return $this->_test = new $val['class'] ;
 	}
 	public function  getTest(){
-		return $this->test;
+		return $this->_test;
 	}
 	public function hello(){
-		$this->setName($this->name);
-		$this->test->test();
+		$this->_test->test();
 		return printf('hello %s',$this->name);
 	}
 }

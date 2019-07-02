@@ -6,4 +6,6 @@
   'contance' => 'wfwf',
   'apple' => '963852147',
   'adminEmail' => 'adminEmail@qq.com',
+  'age' => '18',
+  'cc' => '232',
 );

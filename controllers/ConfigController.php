@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+use app\common\myEvent;
 use app\models\Config;
 use yii\web\Controller;
 use yii\filters\AccessControl;
@@ -56,9 +57,6 @@ class ConfigController extends Controller
     	$conf = new Config();
         $data = $conf->getData();
 
-
-
-
         return $this->render('index',[
             'model' => $data,
         ]);
@@ -92,7 +90,8 @@ class ConfigController extends Controller
     public function actionCreate(){
         $conf = new Config();
         if(Yii::$app->request->post() && $conf->save(Yii::$app->request->post()) ){
-;
+        	//触发事件
+
             return $this->redirect(['index']);
         }
         return $this->render('create');

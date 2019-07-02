@@ -20,7 +20,8 @@ use yii\di\Container;
  		echo "依赖注入<br>";
  		$test = new Test();
  		$first = new First();
- 		$first->setTest($test);
+ 		// $first->setTest($test);
+ 		$first->test =  $test;
  		$first->name = 'allen';
  		$first->hello();
  		//依赖注入 end 
